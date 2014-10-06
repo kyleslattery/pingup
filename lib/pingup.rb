@@ -1,5 +1,7 @@
+require 'rest_client'
+
 require "pingup/version"
+require "pingup/client"
 
 module Pingup
-  # Your code goes here...
 end
