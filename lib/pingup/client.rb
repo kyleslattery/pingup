@@ -13,7 +13,11 @@ module Pingup
       JSON.parse RestClient.get(build_resource_url(resource), {params: params, token: access_token})
     end
 
-    # private
+    def post(resource, params={})
+      JSON.parse RestClient.post(build_resource_url(resource), params.to_json, content_type: 'application/json', token: access_token)
+    end
+
+    private
 
     def access_token
       if @auth_token && @auth_token['tokenExpiration']/1000.0 > Time.now.to_i+5
